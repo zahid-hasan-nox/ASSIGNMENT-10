@@ -1,0 +1,7 @@
+PACKGE={
+npm install lottie-react
+npm install motion
+npm i react-icons
+npm install swiper
+npm install sweetalert2
+}

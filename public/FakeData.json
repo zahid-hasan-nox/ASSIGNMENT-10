@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Logo Design for Startup",
+    "category": "Graphic Design",
+    "budget": "$120",
+    "deadline": "2025-10-20"
+  },
+  {
+    "id": 2,
+    "title": "Build Responsive Landing Page",
+    "category": "Web Development",
+    "budget": "$300",
+    "deadline": "2025-10-25"
+  },
+  {
+    "id": 3,
+    "title": "Content Writing for Travel Blog",
+    "category": "Writing & Editing",
+    "budget": "$80",
+    "deadline": "2025-10-18"
+  },
+  {
+    "id": 4,
+    "title": "Mobile App UI/UX Design",
+    "category": "UI/UX Design",
+    "budget": "$250",
+    "deadline": "2025-11-01"
+  },
+  {
+    "id": 5,
+    "title": "SEO Optimization for Website",
+    "category": "Digital Marketing",
+    "budget": "$150",
+    "deadline": "2025-10-28"
+  },
+  {
+    "id": 6,
+    "title": "Data Entry for Survey Forms",
+    "category": "Admin Support",
+    "budget": "$60",
+    "deadline": "2025-10-15"
+  },
+  {
+    "id": 7,
+    "title": "YouTube Video Editing",
+    "category": "Video Editing",
+    "budget": "$200",
+    "deadline": "2025-11-05"
+  },
+  {
+    "id": 8,
+    "title": "English to Spanish Translation",
+    "category": "Translation",
+    "budget": "$90",
+    "deadline": "2025-10-22"
+  },
+  {
+    "id": 9,
+    "title": "Backend API Setup with Express.js",
+    "category": "Programming",
+    "budget": "$400",
+    "deadline": "2025-11-10"
+  },
+  {
+    "id": 10,
+    "title": "Social Media Banner Design",
+    "category": "Graphic Design",
+    "budget": "$70",
+    "deadline": "2025-10-17"
+  }
+]
