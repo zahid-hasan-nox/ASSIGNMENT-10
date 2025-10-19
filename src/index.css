@@ -1,2 +1,8 @@
 @import "tailwindcss";
+
 @plugin "daisyui";
+
+/* Dark mode enable */
+@theme {
+  --color-bg: theme(colors.gray.900);
+}
