@@ -97,7 +97,6 @@ const Header = () => {
       {/* Right: Auth + Dark Mode */}
       <div className="navbar-end flex items-center gap-3">
         {/* 🌗 Dark Mode Toggle */}
-        
 
         {user ? (
           <>

@@ -5,4 +5,5 @@ npm i react-icons
 npm install swiper
 npm install sweetalert2
 npm i react-hot-toast
+npm i react-simple-typewriter
 }

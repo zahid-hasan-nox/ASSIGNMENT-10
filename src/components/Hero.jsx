@@ -2,6 +2,7 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useNavigate } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const Hero = () => {
   const slides = [
     {
       id: 2,
-      title: "Post Your Own Tasks",
+      title: ["Post Your Own Tasks", "Get Freelancers Worldwide"],
       desc: "Need something done? Post your task and get offers from freelancers worldwide.",
       img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1500&q=80",
       btn1: { label: "Add Task", path: "/add-task" },
@@ -17,7 +18,7 @@ const Hero = () => {
     },
     {
       id: 3,
-      title: "Manage Your Projects Easily",
+      title: ["Manage Your Projects Easily", "Track Progress Seamlessly"],
       desc: "Track progress, communicate, and complete projects seamlessly from one place.",
       img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1500&q=80",
       btn1: { label: "My Posted Task", path: "/my-posted-task" },
@@ -25,7 +26,7 @@ const Hero = () => {
     },
     {
       id: 1,
-      title: "Hire Top Freelancers Easily",
+      title: ["Hire Top Freelancers Easily", "Get Tasks Done Faster"],
       desc: "Find talented professionals and get your tasks done faster and smarter.",
       img: "https://images.unsplash.com/photo-1612831455546-9b1b5a8d1f8b?auto=format&fit=crop&w=1500&q=80",
       btn1: { label: "Browse Tasks", path: "/browse-task" },
@@ -63,7 +64,15 @@ const Hero = () => {
               {/* Content */}
               <div className="relative z-10 px-4">
                 <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                  {slide.title}
+                  <Typewriter
+                    words={slide.title}
+                    loop={true}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={2000}
+                  />
                 </h1>
                 <p className="text-lg lg:text-xl mb-10 max-w-2xl mx-auto text-gray-200">
                   {slide.desc}
