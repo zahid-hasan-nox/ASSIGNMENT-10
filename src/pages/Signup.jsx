@@ -61,6 +61,7 @@ const Signup = () => {
               name="photo"
               placeholder="Profile photo link"
               className="input input-bordered w-full"
+              required
             />
           </div>
 

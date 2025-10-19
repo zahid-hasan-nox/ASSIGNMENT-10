@@ -8,14 +8,6 @@ const Hero = () => {
 
   const slides = [
     {
-      id: 1,
-      title: "Hire Top Freelancers Easily",
-      desc: "Find talented professionals and get your tasks done faster and smarter.",
-      img: "https://images.unsplash.com/photo-1612831455546-9b1b5a8d1f8b?auto=format&fit=crop&w=1500&q=80",
-      btn1: { label: "Browse Tasks", path: "/browse-task" },
-      btn2: { label: "Add Task", path: "/add-task" },
-    },
-    {
       id: 2,
       title: "Post Your Own Tasks",
       desc: "Need something done? Post your task and get offers from freelancers worldwide.",
@@ -30,6 +22,14 @@ const Hero = () => {
       img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1500&q=80",
       btn1: { label: "My Posted Task", path: "/my-posted-task" },
       btn2: { label: "Browse Tasks", path: "/browse-task" },
+    },
+    {
+      id: 1,
+      title: "Hire Top Freelancers Easily",
+      desc: "Find talented professionals and get your tasks done faster and smarter.",
+      img: "https://images.unsplash.com/photo-1612831455546-9b1b5a8d1f8b?auto=format&fit=crop&w=1500&q=80",
+      btn1: { label: "Browse Tasks", path: "/browse-task" },
+      btn2: { label: "Add Task", path: "/add-task" },
     },
   ];
 
