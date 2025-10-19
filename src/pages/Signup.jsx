@@ -4,7 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Signup = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile,signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
@@ -21,8 +21,19 @@ const Signup = () => {
         // Update profile (name & photo)
         updateUserProfile(name, photo).then(() => {
           toast.success("Account created successfully 🎉");
-          navigate("/"); // signup সফল হলে home এ নিয়ে যাবে
+          navigate("/");
         });
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        toast.success("Logged in with Google 🎉");
+        navigate("/"); // সফল হলে home এ নিয়ে যাবে
       })
       .catch((err) => {
         toast.error(err.message);
@@ -107,7 +118,10 @@ const Signup = () => {
         <div className="divider my-4">OR</div>
 
         {/* Google login */}
-        <button className="btn btn-outline w-full flex items-center justify-center gap-2">
+        <button
+          onClick={handleGoogleLogin}
+          className="btn btn-outline w-full flex items-center justify-center gap-2"
+        >
           <img
             src="https://www.svgrepo.com/show/475656/google-color.svg"
             alt="Google"
