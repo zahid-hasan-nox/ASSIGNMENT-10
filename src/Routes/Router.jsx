@@ -10,6 +10,7 @@ import AddTask from "../pages/AddTask";
 import MyPostedTask from "../pages/MyPostedTask";
 import CardDetails from "../pages/CardDetails";
 import UpdateTask from "../pages/UpdateTask";
+import PrivateRoute from "../AuthProvider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -32,32 +33,56 @@ export const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile></Profile>,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/browse-task",
         loader: () => fetch("http://localhost:5000/tasks"),
-        element: <BrowseTask></BrowseTask>,
+        element: (
+          <PrivateRoute>
+            <BrowseTask></BrowseTask>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-task",
-        element: <AddTask></AddTask>,
+        element: (
+          <PrivateRoute>
+            <AddTask></AddTask>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/card-details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/tasks/${params.id}`),
-        element: <CardDetails></CardDetails>,
+        element: (
+          <PrivateRoute>
+            <CardDetails></CardDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-posted-task",
-        element: <MyPostedTask></MyPostedTask>,
+        element: (
+          <PrivateRoute>
+            <MyPostedTask></MyPostedTask>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateTask/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/tasks/${params.id}`),
-        element: <UpdateTask></UpdateTask>,
+        element: (
+          <PrivateRoute>
+            <UpdateTask></UpdateTask>
+          </PrivateRoute>
+        ),
       },
     ],
   },

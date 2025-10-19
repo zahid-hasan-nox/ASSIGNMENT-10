@@ -1,114 +1,112 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Signup = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const photo = e.target.photo.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(name, photo, email, password);
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // Firebase createUser
+    createUser(email, password)
+      .then((result) => {
+        // Update profile (name & photo)
+        updateUserProfile(name, photo).then(() => {
+          toast.success("Account created successfully 🎉");
+          navigate("/"); // signup সফল হলে home এ নিয়ে যাবে
+        });
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200">
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4 my-6 p-6 bg-white rounded-lg shadow-md w-full max-w-md mx-auto"
-      >
-        <h2 className="text-3xl font-bold text-center mb-4 text-emerald-500">
-          Sign Up
+      <div className="card w-full max-w-md bg-white shadow-lg p-8">
+        <h2 className="text-3xl font-bold text-center text-emerald-500 mb-5">
+          Create an Account
         </h2>
 
-        {/* Name */}
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-medium">Full Name</span>
-          </label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your full name"
-            className="input input-bordered w-full"
-            // required
-          />
-        </div>
+        <form onSubmit={handleSignup} className="space-y-4">
+          {/* Name */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-semibold">Full Name</span>
+            </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
 
-        {/* Photo */}
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-medium">Photo URL</span>
-          </label>
-          <input
-            type="text"
-            name="photo"
-            placeholder="Photo URL"
-            className="input input-bordered w-full"
-          />
-        </div>
+          {/* Photo URL */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-semibold">Photo URL</span>
+            </label>
+            <input
+              type="text"
+              name="photo"
+              placeholder="Profile photo link"
+              className="input input-bordered w-full"
+            />
+          </div>
 
-        {/* Email */}
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-medium">Email</span>
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="example@mail.com"
-            className="input input-bordered w-full"
-            required
-          />
-        </div>
+          {/* Email */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-semibold">Email</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="example@mail.com"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
 
-        {/* Password */}
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-medium">Password</span>
-          </label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            className="input input-bordered w-full"
-            required
-          />
-        </div>
+          {/* Password */}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text font-semibold">Password</span>
+            </label>
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
 
-        {/* Confirm Password
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text font-medium">Confirm Password</span>
-          </label>
-          <input
-            type="password"
-            name="confirm"
-            placeholder="Confirm your password"
-            className="input input-bordered w-full"
-            required
-          />
-        </div> */}
+          {/* Submit */}
+          <div className="form-control mt-4">
+            <button
+              type="submit"
+              className="btn bg-emerald-500 hover:bg-emerald-600 text-white w-full"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
 
-        {/* Submit Button */}
-        <div className="form-control mt-4">
-          <button type="submit" className="btn bg-emerald-500 text-white w-full">
-            Sign Up
-          </button>
-        </div>
+        <div className="divider my-4">OR</div>
 
-        {/* Divider */}
-        <div className="divider">OR</div>
-
-        {/* Google Sign Up Button */}
-        <button
-          type="button"
-          className="btn btn-outline s w-full flex items-center gap-2"
-        >
+        {/* Google login */}
+        <button className="btn btn-outline w-full flex items-center justify-center gap-2">
           <img
             src="https://www.svgrepo.com/show/475656/google-color.svg"
             alt="Google"
@@ -117,14 +115,16 @@ const Signup = () => {
           Continue with Google
         </button>
 
-        {/* Optional login link */}
-        <p className="text-center text-sm mt-3 text-gray-600">
+        <p className="text-center mt-4 text-sm text-gray-600">
           Already have an account?{" "}
-          <Link to={"/login"} className="link text-emerald-500 link-primary font-semibold">
+          <Link
+            to="/login"
+            className="text-emerald-500 font-semibold link-hover"
+          >
             Log In
           </Link>
         </p>
-      </form>
+      </div>
     </div>
   );
 };
