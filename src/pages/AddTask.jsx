@@ -51,7 +51,7 @@ const AddTask = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-10 px-4">
       <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-        <h2 className="text-3xl font-semibold text-center mb-6 text-gray-700">
+        <h2 className="text-3xl font-semibold underline text-center mb-6 text-gray-700">
           Add New Task
         </h2>
 
