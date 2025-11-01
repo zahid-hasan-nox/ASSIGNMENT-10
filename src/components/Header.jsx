@@ -4,7 +4,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 
-
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="navbar bg-white  shadow-md sticky top-0 z-50 px-4 lg:px-10 transition-colors duration-300">
+    <div className="navbar bg-white/80 backdrop-blur-md shadow-sm hover:shadow-md sticky top-0 z-50 px-4 lg:px-10 transition-all duration-300">
       {/* Left: Brand + Mobile Menu */}
       <div className="navbar-start">
         {/* Mobile menu */}
