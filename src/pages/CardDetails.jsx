@@ -26,12 +26,15 @@ const CardDetails = () => {
   // 🟢 handle Bid click
   const handleBid = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/tasks/${_id}/bid`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        `https://assignment-10-server-sigma-teal.vercel.app/tasks/${_id}/bid`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to place bid");
 

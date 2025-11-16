@@ -26,7 +26,7 @@ const AddTask = () => {
     };
     console.log(newTask);
 
-    fetch("http://localhost:5000/tasks", {
+    fetch("https://assignment-10-server-sigma-teal.vercel.app/tasks", {
       method: "POST",
       headers: {
         "content-type": "application/json",

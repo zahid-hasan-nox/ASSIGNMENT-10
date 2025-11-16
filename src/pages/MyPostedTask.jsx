@@ -10,7 +10,9 @@ const MyPostedTask = () => {
 
   // নিজের টাস্ক লোড করা
   useEffect(() => {
-    fetch(`http://localhost:5000/tasks?email=${userEmail}`)
+    fetch(
+      `https://assignment-10-server-sigma-teal.vercel.app/tasks?email=${userEmail}`
+    )
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.error(err));
@@ -28,9 +30,12 @@ const MyPostedTask = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tasks/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-server-sigma-teal.vercel.app/tasks/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

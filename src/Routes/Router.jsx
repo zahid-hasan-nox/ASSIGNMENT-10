@@ -20,7 +20,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:5000/tasks"),
+        loader: () =>
+          fetch("https://assignment-10-server-sigma-teal.vercel.app/tasks"),
         element: <Home></Home>,
       },
       {
@@ -41,7 +42,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/browse-task",
-        loader: () => fetch("http://localhost:5000/tasks"),
+        loader: () =>
+          fetch("https://assignment-10-server-sigma-teal.vercel.app/tasks"),
         element: (
           <PrivateRoute>
             <BrowseTask></BrowseTask>
@@ -59,7 +61,9 @@ export const router = createBrowserRouter([
       {
         path: "/card-details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(
+            `https://assignment-10-server-sigma-teal.vercel.app/tasks/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <CardDetails></CardDetails>
@@ -77,7 +81,9 @@ export const router = createBrowserRouter([
       {
         path: "/updateTask/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(
+            `https://assignment-10-server-sigma-teal.vercel.app/tasks/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <UpdateTask></UpdateTask>

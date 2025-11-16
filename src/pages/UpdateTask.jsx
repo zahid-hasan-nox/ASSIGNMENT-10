@@ -7,7 +7,7 @@ const UpdateTask = () => {
   const [task, setTask] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tasks/${id}`)
+    fetch(`https://assignment-10-server-sigma-teal.vercel.app/tasks/${id}`)
       .then((res) => res.json())
       .then((data) => setTask(data));
   }, [id]);
@@ -23,7 +23,7 @@ const UpdateTask = () => {
       budget: e.target.budget.value,
     };
 
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch(`https://assignment-10-server-sigma-teal.vercel.app/tasks/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updatedTask),
